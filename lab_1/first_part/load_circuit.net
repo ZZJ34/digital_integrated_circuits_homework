@@ -1,0 +1,13 @@
+* 输出反相器
+.subckt load_inv in out vdd gnd size='LOAD_SIZE'
+Xpfet out in vdd vdd pfet l=lg nfin=size
+Xnfet out in gnd gnd nfet l=lg nfin=size
+.ends load_inv
+
+* 1级负载
+Xload_inv_out load_in out VDD_LOAD VSS load_inv size='LOAD_SIZE'
+* 2级负载
+Xload_inv_fanout_1 out out2 VDD_LOAD VSS load_inv size='LOAD_SIZE'
+Xload_inv_fanout_2 out out2 VDD_LOAD VSS load_inv size='LOAD_SIZE'
+Xload_inv_fanout_3 out out2 VDD_LOAD VSS load_inv size='LOAD_SIZE'
+Xload_inv_fanout_4 out out2 VDD_LOAD VSS load_inv size='LOAD_SIZE'

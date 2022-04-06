@@ -1,0 +1,23 @@
+* "simulator" "HSPICE" 
+* "version" "J-2014.09-2 64-BIT"
+* "format" "HSP"
+* "rundate" "19:49:43 04/05/2022 "
+* "netlist" "change_vdd.sp "
+* "runtitle" "edp"
+* time =    0.            
+* temperature =   85.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ in =   0.            
++ in2 = 689.9993m       
++ in3 = 552.0682n       
++ in4 = 689.9993m       
++ load_in = 552.0642n       
++ out = 689.9993m       
++ out2 = 551.8969n       
++ vdd_design = 690.0000m       
++ vdd_load = 690.0000m       
++ vss =   0.            
+***   END: Saved Operating Point ***                     

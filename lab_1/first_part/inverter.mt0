@@ -1,0 +1,6 @@
+$DATA1 SOURCE='HSPICE' VERSION='J-2014.09-2 64-BIT'
+.TITLE 'inverter'
+ tplh_odd_inv     tphl_odd_inv     tplh_even_inv    tphl_even_inv   
+ temper           alter#          
+ -1.999e-08        2.003e-08        2.059e-11        2.090e-11      
+   85.0000        1               

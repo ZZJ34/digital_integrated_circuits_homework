@@ -1,0 +1,40 @@
+* "simulator" "HSPICE" 
+* "version" "J-2014.09-2 64-BIT"
+* "format" "HSP"
+* "rundate" "16:41:50 04/06/2022 "
+* "netlist" "7or.sp "
+* "runtitle" "7or"
+* time =    0.            
+* temperature =   85.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ in1 = 750.0000m       
++ in1_i = 620.4023n       
++ in2 = 750.0000m       
++ in2_i = 620.4023n       
++ in3 = 750.0000m       
++ in3_i = 620.4023n       
++ in4 = 750.0000m       
++ in4_i = 620.4023n       
++ in5 = 750.0000m       
++ in5_i = 620.4023n       
++ in6 =   0.            
++ in6_i = 749.9994m       
++ in7 = 750.0000m       
++ in7_i = 621.0032n       
++ load_in = 749.9989m       
++ out = 620.7587n       
++ out2 = 749.9995m       
++ out_temp =   3.2644u       
++ p_node_1 =  56.0927m       
++ p_node_2 =  72.5841m       
++ p_node_3 =  83.5332m       
++ p_node_4 =  91.8690m       
++ p_node_5 =  98.6291m       
++ p_node_6 = 749.9995m       
++ vdd_design = 750.0000m       
++ vdd_load = 750.0000m       
++ vss =   0.            
+***   END: Saved Operating Point ***                     

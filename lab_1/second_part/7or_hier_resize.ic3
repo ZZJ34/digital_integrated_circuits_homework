@@ -1,0 +1,46 @@
+* "simulator" "HSPICE" 
+* "version" "J-2014.09-2 64-BIT"
+* "format" "HSP"
+* "rundate" "23:29:07 04/06/2022 "
+* "netlist" "7or_hier_resize.sp "
+* "runtitle" "7or_hier_resize"
+* time =    0.            
+* temperature =   85.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ in1 = 750.0000m       
++ in1_i = 620.5722n       
++ in2 = 750.0000m       
++ in2_i = 620.5722n       
++ in3 =   0.            
++ in3_i = 749.9994m       
++ in4 = 750.0000m       
++ in4_i = 620.5722n       
++ in5 = 750.0000m       
++ in5_i = 620.6584n       
++ in6 = 750.0000m       
++ in6_i = 620.6584n       
++ in7 = 750.0000m       
++ in7_i = 620.6584n       
++ load_in = 749.9987m       
++ out = 620.7618n       
++ out2 = 749.9995m       
++ out_1 = 749.9990m       
++ out_1_i = 620.4164n       
++ out_2 =   1.1904u       
++ out_2_i = 749.9994m       
++ out_3 = 749.9985m       
++ out_3_i = 620.6808n       
++ out_temp =   1.5545u       
++ vdd_design = 750.0000m       
++ vdd_load = 750.0000m       
++ vss =   0.            
++ xnor2_1.p_node_1 = 749.9995m       
++ xnor2_2.p_node_1 = 749.9993m       
++ xnor3_3.p_node_1 = 749.9990m       
++ xnor3_3.p_node_2 = 749.9995m       
++ xnor3_4.p_node_1 =  58.9300m       
++ xnor3_4.p_node_2 = 749.9994m       
+***   END: Saved Operating Point ***                     

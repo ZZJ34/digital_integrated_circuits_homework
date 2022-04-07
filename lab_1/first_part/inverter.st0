@@ -10,7 +10,7 @@
  lic: License/Maintenance for hspice will expire on 30-dec-2030/2019.2019
  lic: 1(in_use)/99(total) FLOATING license(s) on SERVER 27000@DESKTOP-NPIU9RN
  lic:
- init: begin read circuit files,  cpu clock=  6.50E-02
+ init: begin read circuit files,  cpu clock=  6.70E-02
        option search = C:\synopsys\Hspice_J-2014.09-2\parts\behave\
        option search = C:\synopsys\Hspice_J-2014.09-2\parts\behave\
        option search = C:\synopsys\Hspice_J-2014.09-2\parts\AD\
@@ -31,30 +31,30 @@
        option acct
        option list
        option post
- init: end read circuit files,  cpu clock=  7.00E-02 peak memory=        41 mb
- init: begin check errors,  cpu clock=  7.00E-02
- init: end check errors,  cpu clock=  1.04E-01 peak memory=        45 mb
- init: begin setup matrix, pivot=     0 cpu clock=  1.04E-01
-       establish matrix -- done,  cpu clock=  1.04E-01 peak memory=        45 mb
-       re-order matrix -- done,  cpu clock=  1.05E-01 peak memory=        45 mb
- init: end setup matrix,  cpu clock=  1.05E-01 peak memory=        45 mb
+ init: end read circuit files,  cpu clock=  7.10E-02 peak memory=        41 mb
+ init: begin check errors,  cpu clock=  7.10E-02
+ init: end check errors,  cpu clock=  1.08E-01 peak memory=        45 mb
+ init: begin setup matrix, pivot=     0 cpu clock=  1.08E-01
+       establish matrix -- done,  cpu clock=  1.08E-01 peak memory=        45 mb
+       re-order matrix -- done,  cpu clock=  1.09E-01 peak memory=        45 mb
+ init: end setup matrix,  cpu clock=  1.09E-01 peak memory=        45 mb
  output: inverter.sw0
- sweep: dc dc0    begin, #sweeps= 751 cpu clock=  1.07E-01
- sweep: dc dc0    end,  cpu clock=  4.02E-01 peak memory=        45 mb
- dcop: begin dcop,  cpu clock=  4.02E-01
- dcop: end dcop,  cpu clock=  4.04E-01 peak memory=        45 mb  tot_iter=       3
+ sweep: dc dc0    begin, #sweeps= 751 cpu clock=  1.13E-01
+ sweep: dc dc0    end,  cpu clock=  4.17E-01 peak memory=        45 mb
+ dcop: begin dcop,  cpu clock=  4.17E-01
+ dcop: end dcop,  cpu clock=  4.20E-01 peak memory=        45 mb  tot_iter=       3
  output: inverter.mt0
- sweep: tran tran0    begin, stop_t=  2.00E-07 #sweeps=**** cpu clock=  4.05E-01
- tran: time= 2.0005E-08 tot_iter=      22 conv_iter=      11 cpu clock= 4.06E-01
- tran: time= 4.0010E-08 tot_iter=     188 conv_iter=      59 cpu clock= 4.27E-01
- tran: time= 6.0000E-08 tot_iter=     367 conv_iter=     113 cpu clock= 4.47E-01
- tran: time= 8.0010E-08 tot_iter=     554 conv_iter=     172 cpu clock= 4.71E-01
- tran: time= 1.0000E-07 tot_iter=     735 conv_iter=     227 cpu clock= 4.93E-01
- tran: time= 1.2001E-07 tot_iter=     922 conv_iter=     286 cpu clock= 5.15E-01
- tran: time= 1.4000E-07 tot_iter=    1119 conv_iter=     349 cpu clock= 5.37E-01
- tran: time= 1.6001E-07 tot_iter=    1292 conv_iter=     401 cpu clock= 5.59E-01
- tran: time= 1.8000E-07 tot_iter=    1489 conv_iter=     464 cpu clock= 5.85E-01
- tran: time= 2.0000E-07 tot_iter=    1662 conv_iter=     516 cpu clock= 6.05E-01
- sweep: tran tran0    end,  cpu clock=  6.05E-01 peak memory=        45 mb
+ sweep: tran tran0    begin, stop_t=  2.00E-07 #sweeps=**** cpu clock=  4.20E-01
+ tran: time= 2.0005E-08 tot_iter=      22 conv_iter=      11 cpu clock= 4.21E-01
+ tran: time= 4.0010E-08 tot_iter=     188 conv_iter=      59 cpu clock= 4.43E-01
+ tran: time= 6.0000E-08 tot_iter=     367 conv_iter=     113 cpu clock= 4.66E-01
+ tran: time= 8.0010E-08 tot_iter=     554 conv_iter=     172 cpu clock= 4.88E-01
+ tran: time= 1.0000E-07 tot_iter=     735 conv_iter=     227 cpu clock= 5.09E-01
+ tran: time= 1.2001E-07 tot_iter=     922 conv_iter=     286 cpu clock= 5.34E-01
+ tran: time= 1.4000E-07 tot_iter=    1119 conv_iter=     349 cpu clock= 5.58E-01
+ tran: time= 1.6001E-07 tot_iter=    1292 conv_iter=     401 cpu clock= 5.79E-01
+ tran: time= 1.8000E-07 tot_iter=    1489 conv_iter=     464 cpu clock= 6.04E-01
+ tran: time= 2.0000E-07 tot_iter=    1662 conv_iter=     516 cpu clock= 6.25E-01
+ sweep: tran tran0    end,  cpu clock=  6.26E-01 peak memory=        45 mb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)

@@ -1,0 +1,6 @@
+$DATA1 SOURCE='HSPICE' VERSION='J-2014.09-2 64-BIT'
+.TITLE '7or'
+ tplh             tphl             avg_power        temper          
+ alter#          
+  3.518e-11        2.916e-11       -6.561e-08         85.0000       
+ 7               

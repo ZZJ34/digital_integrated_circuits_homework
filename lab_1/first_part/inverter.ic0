@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "J-2014.09-2 64-BIT"
 * "format" "HSP"
-* "rundate" "17:11:26 04/05/2022 "
+* "rundate" "16:33:39 04/06/2022 "
 * "netlist" "inverter.sp "
 * "runtitle" "inverter"
 * time =    0.            

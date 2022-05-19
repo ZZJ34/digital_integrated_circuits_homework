@@ -1,0 +1,45 @@
+* "simulator" "HSPICE" 
+* "version" "J-2014.09-2 64-BIT"
+* "format" "HSP"
+* "rundate" "16:22:28 05/19/2022 "
+* "netlist" "lfsr.sp "
+* "runtitle" "lfsp"
+* time =    0.            
+* temperature =   35.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ clk_1 =  58.1100n       
++ clk_10 =  58.1100n       
++ clk_11 =  58.1100n       
++ clk_12 =  58.1100n       
++ clk_13 =  58.1100n       
++ clk_14 =  58.1100n       
++ clk_15 =  58.1100n       
++ clk_16 =  58.1100n       
++ clk_2 =  58.1100n       
++ clk_3 =  58.1100n       
++ clk_4 =  58.1100n       
++ clk_5 =  58.1100n       
++ clk_6 =  58.1100n       
++ clk_7 =  58.1100n       
++ clk_8 =  58.1100n       
++ clk_9 =  58.1100n       
++ clk_in =   0.            
++ load_in =   0.            
++ load_out = 750.0000m       
++ out_temp_1 =  58.2895n       
++ out_temp_2 =  58.2895n       
++ out_temp_3 =  58.2895n       
++ out_temp_4 =  58.2895n       
++ vdd_clk = 750.0000m       
++ vdd_design = 750.0000m       
++ vdd_load = 750.0000m       
++ vss =   0.            
++ xbuffer_1.out_int = 749.9999m       
++ xbuffer_2_1.out_int = 749.9999m       
++ xbuffer_2_2.out_int = 749.9999m       
++ xbuffer_2_3.out_int = 749.9999m       
++ xbuffer_2_4.out_int = 749.9999m       
+***   END: Saved Operating Point ***                     

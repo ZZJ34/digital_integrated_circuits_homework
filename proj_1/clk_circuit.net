@@ -1,0 +1,30 @@
+* size=1 inverter
+.subckt inv_size_1 in out vdd gnd
+Xpfet out in vdd vdd pfet l=lg nfin=1
+Xnfet out in gnd gnd nfet l=lg nfin=1
+.ends inv_size_1
+
+* size=4 inverter
+.subckt inv_size_4 in out vdd gnd
+Xpfet out in vdd vdd pfet l=lg nfin=4
+Xnfet out in gnd gnd nfet l=lg nfin=4
+.ends inv_size_4
+
+* fan_out=4 buffer
+.subckt buffer in out_1 out_2 out_3 out_4 vdd gnd
+Xinv_size_4_in in out_int vdd gnd inv_size_4
+Xinv_size_1_out_1 out_int out_1 vdd gnd inv_size_1
+Xinv_size_1_out_2 out_int out_2 vdd gnd inv_size_1
+Xinv_size_1_out_3 out_int out_3 vdd gnd inv_size_1
+Xinv_size_1_out_4 out_int out_4 vdd gnd inv_size_1
+.ends buffer
+
+* clk tree
+* 一级扇出
+Xbuffer_1 clk_in out_temp_1 out_temp_2 out_temp_3 out_temp_4 VDD_CLK VSS buffer
+* 二级扇出
+Xbuffer_2_1 out_temp_1 clk_1 clk_2 clk_3 clk_4 VDD_CLK VSS buffer
+Xbuffer_2_2 out_temp_2 clk_5 clk_6 clk_7 clk_8 VDD_CLK VSS buffer
+Xbuffer_2_3 out_temp_3 clk_9 clk_10 clk_11 clk_12 VDD_CLK VSS buffer
+Xbuffer_2_4 out_temp_4 clk_13 clk_14 clk_15 clk_16 VDD_CLK VSS buffer
+

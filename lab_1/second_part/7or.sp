@@ -141,6 +141,5 @@ Vin7 in7 VSS pulse 0 'SUPPLY' 20n .01n .01n 20n 40n
 .measure tran tphl trig v(in7) val='SUPPLY/2' rise=1 targ v(load_in) val='SUPPLY/2' fall=1
 .measure tran avg_power avg p(VVDD_DESIGN) from=0.0001n to=50n
 
-
 .probe tran
 .end

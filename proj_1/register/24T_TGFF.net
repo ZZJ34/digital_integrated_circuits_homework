@@ -1,0 +1,18 @@
+* 经典24管D触发器
+.subckt tgff d q clk vdd vss
+* 控制信号 ckl ckn
+Xinv_1 clk ckn vdd vss inv_size_1
+Xinv_2 ckn ckl vdd vss inv_size_1
+* master 
+Xinv_3    d   m1 vdd vss inv_size_1
+Xtg_1    m1   m2 ckn ckl vdd vss tg
+Xinv_4   m2 temp vdd vss inv_size_1
+Xinv_5 temp   m3 vdd vss inv_size_1
+Xtg_2    m3   m2 ckl ckn vdd vss tg
+* slave
+Xtg_3  temp   s1 ckl ckn vdd vss tg
+Xinv_6   s1   s2 vdd vss inv_size_1
+Xinv_7   s2    q vdd vss inv_size_1
+Xinv_8   s2   s3 vdd vss inv_size_1
+Xtg_4    s3   s1 ckn ckl vdd vss tg
+.ends tgff

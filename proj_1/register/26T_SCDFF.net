@@ -1,0 +1,34 @@
+* 26T Static Contention-free Differential Flip-Flop (SCDFF)
+.subckt scdff d q clk vdd vss
+* inverter
+Xinv_1  d  DB_  vdd  vss  inv_size_1
+Xinv_2  QN q    vdd  vss  inv_size_1
+* MOS => nfet/pfet [d g s x]
+Xt_1  node_1 DB_ vdd    vdd pfet
+Xt_2  DI     clk node_1 vdd pfet
+Xt_3  node_2 d   vdd    vdd pfet
+Xt_4  DN     clk node_2 vdd pfet
+* 
+Xt_5  DI     DN  vdd    vdd pfet
+Xt_6  DI     DN  node_3 vss nfet
+Xt_7  node_3 DB_ vss    vss nfet
+Xt_8  DN     DI  vdd    vdd pfet
+Xt_9  DN     DI  node_4 vss nfet
+Xt_10 node_4 d   vss    vss nfet
+* 
+Xt_11 node_3 clk node_4 vss nfet
+*
+Xt_12 QN     clk node_5 vss nfet
+Xt_13 node_5 DI  vss    vss nfet
+Xt_14 QI     clk node_6 vss nfet
+Xt_15 node_6 DN  vss    vss nfet
+*
+Xt_16 node_7 DI  vdd    vdd pfet
+Xt_17 QN     QI  node_7 vdd pfet
+Xt_18 QN     QI  vss    vss nfet
+Xt_19 node_8 DN  vdd    vdd pfet
+Xt_20 QI     QN  node_8 vdd pfet
+Xt_21 QI     QN  vss    vss nfet
+*
+Xt_22 node_7 clk node_8 vdd pfet     
+.ends scdff

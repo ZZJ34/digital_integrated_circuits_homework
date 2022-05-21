@@ -1,0 +1,27 @@
+* 26T True-single-phase-clocked FF (TSPC)
+.subckt tspc d q clk vdd vss
+Xm_1  N2     node_1 node_3 vdd pfet
+Xm_2  node_3 N3     N2     vdd pfet
+Xm_3  N3     N2     vdd    vdd pfet
+Xm_4  N3     clk    node_5 vss nfet
+Xm_5  node_5 N2     vss    vss nfet
+Xm_6  node_3 clk    vdd    vdd pfet
+Xm_7  node_6 clk    vdd    vdd pfet
+Xm_8  N3     N4     node_6 vdd pfet
+Xm_9  N3     N4     node_7 vss nfet
+Xm_10 node_7 N2     vss    vss nfet
+Xm_11 node_1 d      vdd    vdd pfet
+Xm_12 N1     clk    node_1 vdd pfet
+Xm_13 N1     N2     node_2 vss nfet
+Xm_14 node_2 d      vss    vss nfet
+Xm_15 node_1 d      vss    vss nfet
+Xm_16 N1     N5     node_4 vss nfet
+Xm_17 N2     N1     node_4 vss nfet
+Xm_18 node_4 clk    vss    vss nfet
+Xm_19 N1     N2     vdd    vdd pfet
+Xm_20 N2     N1     vdd    vdd pfet
+
+Xinv_1 N1 N5 vdd vss inv_size_1
+Xinv_2 N3 N4 vdd vss inv_size_1
+Xinv_3 N3 q  vdd vss inv_size_1
+.ends tspc

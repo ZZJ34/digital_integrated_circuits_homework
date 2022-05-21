@@ -11,6 +11,7 @@ LFSP
 .inc "./register/24T_CSFF.net"
 .inc "./register/26T_SCDFF.net"
 .inc "./register/26T_REFF.net"
+.inc "./register/26T_TSPC.net"
 
 .option acct list post probe
 .global VDD_DESIGN VDD_CLK VDD_LOAD VSS_COM
@@ -23,22 +24,22 @@ LFSP
 
 * 电路描述
 * 线性移位寄存器
-Xff_1  D   Q1      clk_1  VDD_DESIGN VSS_COM reff
-Xff_2  Q1  Q2      clk_2  VDD_DESIGN VSS_COM reff
-Xff_3  Q2  Q3      clk_3  VDD_DESIGN VSS_COM reff
-Xff_4  Q3  Q4      clk_4  VDD_DESIGN VSS_COM reff
-Xff_5  Q4  Q5      clk_5  VDD_DESIGN VSS_COM reff
-Xff_6  Q5  Q6      clk_6  VDD_DESIGN VSS_COM reff
-Xff_7  Q6  Q7      clk_7  VDD_DESIGN VSS_COM reff
-Xff_8  Q7  Q8      clk_8  VDD_DESIGN VSS_COM reff
-Xff_9  Q8  Q9      clk_9  VDD_DESIGN VSS_COM reff
-Xff_10 Q9  Q10     clk_10 VDD_DESIGN VSS_COM reff
-Xff_11 Q10 Q11     clk_11 VDD_DESIGN VSS_COM reff
-Xff_12 Q11 Q12     clk_12 VDD_DESIGN VSS_COM reff
-Xff_13 Q12 Q13     clk_13 VDD_DESIGN VSS_COM reff
-Xff_14 Q13 Q14     clk_14 VDD_DESIGN VSS_COM reff
-Xff_15 Q14 Q15     clk_15 VDD_DESIGN VSS_COM reff
-Xff_16 Q15 load_in clk_16 VDD_DESIGN VSS_COM reff
+Xff_1  D   Q1      clk_1  VDD_DESIGN VSS_COM tspc
+Xff_2  Q1  Q2      clk_2  VDD_DESIGN VSS_COM tspc
+Xff_3  Q2  Q3      clk_3  VDD_DESIGN VSS_COM tspc
+Xff_4  Q3  Q4      clk_4  VDD_DESIGN VSS_COM tspc
+Xff_5  Q4  Q5      clk_5  VDD_DESIGN VSS_COM tspc
+Xff_6  Q5  Q6      clk_6  VDD_DESIGN VSS_COM tspc
+Xff_7  Q6  Q7      clk_7  VDD_DESIGN VSS_COM tspc
+Xff_8  Q7  Q8      clk_8  VDD_DESIGN VSS_COM tspc
+Xff_9  Q8  Q9      clk_9  VDD_DESIGN VSS_COM tspc
+Xff_10 Q9  Q10     clk_10 VDD_DESIGN VSS_COM tspc
+Xff_11 Q10 Q11     clk_11 VDD_DESIGN VSS_COM tspc
+Xff_12 Q11 Q12     clk_12 VDD_DESIGN VSS_COM tspc
+Xff_13 Q12 Q13     clk_13 VDD_DESIGN VSS_COM tspc
+Xff_14 Q13 Q14     clk_14 VDD_DESIGN VSS_COM tspc
+Xff_15 Q14 Q15     clk_15 VDD_DESIGN VSS_COM tspc
+Xff_16 Q15 load_in clk_16 VDD_DESIGN VSS_COM tspc
 * 反馈函数
 Xxor_1 load_in Q15  temp_1 VDD_DESIGN VSS_COM xor
 Xxor_2 temp_1  Q13  temp_2 VDD_DESIGN VSS_COM xor

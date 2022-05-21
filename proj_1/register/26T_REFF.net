@@ -1,0 +1,29 @@
+* 26T Redundancy Eliminated Flip-Flop (REFF.V2)
+.subckt reff d q clk vdd vss
+* Redundant Clock Elimination
+Xt_14 node_4 d      QN     vdd pfet
+Xt_15 node_4 d      vss    vss nfet
+Xt_16 node_4 QI     vss    vss nfet
+Xt_17 node_5 node_4 vdd    vdd pfet
+Xt_18 CKB    clk    node_5 vdd pfet
+Xt_19 CKB    DN     X      vss nfet
+xt_20 CKB    DN     vdd    vdd pfet
+* C2MOS TYPE FF
+Xt_1  A      clk    vdd    vdd pfet
+Xt_2  DN     d      A      vdd pfet
+Xt_3  DN     d      node_1 vss nfet
+Xt_4  node_1 CKB    vss    vss nfet
+Xt_5  DN     CKB    vdd    vdd pfet
+Xt_6  DN     DI     X      vss nfet
+Xt_7  X      clk    vss    vss nfet
+Xt_8  QN     CKB    vdd    vdd pfet
+Xt_9  QN     clk    node_2 vss nfet
+Xt_10 node_2 DI     vss    vss nfet
+Xt_11 QN     QI     A      vdd pfet
+Xt_12 QN     QI     node_3 vss nfet
+Xt_13 node_3 CKB    vss    vss nfet
+* inverter
+Xinv_1  DN  DI  vdd  vss  inv_size_1
+Xinv_2  QN  QI  vdd  vss  inv_size_1
+Xinv_3  QN  Q   vdd  vss  inv_size_1
+.ends reff

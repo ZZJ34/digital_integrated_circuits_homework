@@ -8,6 +8,7 @@ LFSP
 .inc "./clk_circuit.net"
 
 .inc "./register/24T_TGFF.net"
+.inc "./register/24T_CSFF.net"
 
 .option acct list post probe
 .global VDD_DESIGN VDD_CLK VDD_LOAD VSS_COM
@@ -15,6 +16,7 @@ LFSP
 
 .param SUPPLY = 0.75v
 .param TEMP = 35
+.param PERIOD = 4000n
 
 
 * 电路描述
@@ -56,7 +58,12 @@ Vclk_in clk_in VSS_COM pulse 0 'SUPPLY' 10n .01n .01n 10n 20n
 Vinit   init   VSS_COM PWL   0 'SUPPLY' 15n 'SUPPLY' 15.01n 0
 
 * 电路分析        
-.tran 1n 1000n
+* .tran 1n 'PERIOD' sweep TEMP 0 70 35
+.tran 1n 'PERIOD'
+
+* 测量平均功耗
+.measure tran avg_p_VDD_DESIGN AVG p(VVDD_DESIGN) from=0n to='PERIOD'
+.measure tran avg_p_VDD_CLK    AVG p(VVDD_CLK)    from=0n to='PERIOD'
 
 * 输出设置
 .probe tran v(clk_in)

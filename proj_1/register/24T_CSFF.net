@@ -1,0 +1,27 @@
+* 24T change-sensing FF (CSFF)
+.subckt csff d q clk vdd vss
+* master 
+X_master_t1    vdd       d    master_1    vdd  pfet                  
+X_master_t2    master_1  clk  DN          vdd  pfet                     
+X_master_t3    DN        CS   csu_2       vss  nfet                     
+X_master_t10   vdd       DI   master_2    vdd  pfet                     
+X_master_t11   master_2  CS   DN          vdd  pfet                     
+X_master_t12   DN        DI   csu_2       vss  nfet                     
+X_master_i1    DN  DI  vdd  vss  inv_size_1
+* change-sensing unit 
+X_csu_t4    vdd       clk  CS          vdd  pfet                     
+X_csu_t5    CS        clk  csu_1       vss  nfet                     
+X_csu_t6    csu_1     QN   csu_2       vss  nfet                     
+X_csu_t7    csu_2     d    vss         vss  nfet                     
+X_csu_t8    csu_1     DN   csu_3       vss  nfet                     
+X_csu_t9    csu_3     QI   vss         vss  nfet                     
+* slave
+X_slave_t15    master_2 CS    QN        vdd  pfet                    
+X_slave_t16    QN       clk   slave_1   vss  nfet                    
+X_slave_t17    slave_1  DI    vss       vss  nfet                    
+X_slave_i2     QN  q    vdd   vss  inv_size_1
+X_slave_i3     QN  QI   vdd   vss  inv_size_1
+X_slave_t22    vdd      QI    slave_2   vdd  pfet                    
+X_slave_t23    slave_2  clk   QN        vdd  pfet                    
+X_slave_t24    QN       CS    csu_3     vdd  pfet                    
+.ends csff

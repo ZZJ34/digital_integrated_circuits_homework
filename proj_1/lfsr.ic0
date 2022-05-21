@@ -1,7 +1,7 @@
 * "simulator" "HSPICE" 
 * "version" "J-2014.09-2 64-BIT"
 * "format" "HSP"
-* "rundate" "11:11:58 05/20/2022 "
+* "rundate" "10:32:36 05/21/2022 "
 * "netlist" "lfsr.sp "
 * "runtitle" "lfsp"
 * time =    0.            

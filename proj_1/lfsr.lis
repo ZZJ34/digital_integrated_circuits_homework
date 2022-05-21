@@ -6,7 +6,7 @@
   Use of this program is your acceptance to be bound by the
   license agreement. HSPICE is the trademark of Synopsys, Inc.
   Input File: lfsr.sp                                                           
-  Command line options: -mt 3 -i lfsr.sp -o lfsr.lis
+  Command line options: -mt 2 -i lfsr.sp -o lfsr.lis
   lic:  
   lic: FLEXlm: v10.9.8 
   lic: USER:   渣渣基            HOSTNAME: DESKTOP-NPIU9RN 
@@ -809,15 +809,18 @@
      0:fin_width                                               =   9.0000n      
      0:lg                                                      =  14.0000n      
      0:supply                                                  = 750.0000m      
-    27:nfin                                                    =   4.0000       
+     0:period                                                  =   4.0000u      
+     0:avg_p_vdd_design                                        =   0.           
+     0:avg_p_vdd_clk                                           =   0.           
     27:l                                                       =  14.0000n      
-    28:nfin                                                    =   4.0000       
+    27:nfin                                                    =   4.0000       
     28:l                                                       =  14.0000n      
-   246:nfin                                                    =   1.0000       
+    28:nfin                                                    =   4.0000       
    246:l                                                       =  14.0000n      
+   246:nfin                                                    =   1.0000       
    247:nfin                                                    =   1.0000       
-   248:nfin                                                    =   1.0000       
    248:l                                                       =  14.0000n      
+   248:nfin                                                    =   1.0000       
    249:nfin                                                    =   1.0000       
    250:nfin                                                    =   1.0000       
    251:nfin                                                    =   1.0000       
@@ -845,20 +848,20 @@
    273:nfin                                                    =   1.0000       
    274:nfin                                                    =   1.0000       
    275:nfin                                                    =   1.0000       
-   276:nfin                                                    =   1.0000       
    276:l                                                       =  14.0000n      
+   276:nfin                                                    =   1.0000       
    277:nfin                                                    =   1.0000       
-   278:nfin                                                    =   1.0000       
    278:l                                                       =  14.0000n      
+   278:nfin                                                    =   1.0000       
    279:nfin                                                    =   1.0000       
-   281:nfin                                                    =   4.0000       
    281:l                                                       =  14.0000n      
-   282:nfin                                                    =   4.0000       
+   281:nfin                                                    =   4.0000       
    282:l                                                       =  14.0000n      
-   283:nfin                                                    =   1.0000       
+   282:nfin                                                    =   4.0000       
    283:l                                                       =  14.0000n      
-   284:nfin                                                    =   1.0000       
+   283:nfin                                                    =   1.0000       
    284:l                                                       =  14.0000n      
+   284:nfin                                                    =   1.0000       
    285:nfin                                                    =   1.0000       
    286:nfin                                                    =   1.0000       
    287:nfin                                                    =   1.0000       
@@ -905,18 +908,18 @@
    328:nfin                                                    =   1.0000       
    329:nfin                                                    =   1.0000       
    330:nfin                                                    =   1.0000       
-   331:nfin                                                    =   1.0000       
    331:l                                                       =  14.0000n      
-   332:nfin                                                    =   1.0000       
+   331:nfin                                                    =   1.0000       
    332:l                                                       =  14.0000n      
+   332:nfin                                                    =   1.0000       
    333:nfin                                                    =   1.0000       
    334:nfin                                                    =   1.0000       
    335:nfin                                                    =   1.0000       
    336:nfin                                                    =   1.0000       
-   337:nfin                                                    =   1.0000       
    337:l                                                       =  14.0000n      
-   338:nfin                                                    =   1.0000       
+   337:nfin                                                    =   1.0000       
    338:l                                                       =  14.0000n      
+   338:nfin                                                    =   1.0000       
    339:nfin                                                    =   1.0000       
    340:nfin                                                    =   1.0000       
    341:nfin                                                    =   1.0000       
@@ -1293,10 +1296,10 @@
    712:nfin                                                    =   1.0000       
    713:nfin                                                    =   1.0000       
    714:nfin                                                    =   1.0000       
-   715:nfin                                                    =   1.0000       
    715:l                                                       =  14.0000n      
-   716:nfin                                                    =   1.0000       
+   715:nfin                                                    =   1.0000       
    716:l                                                       =  14.0000n      
+   716:nfin                                                    =   1.0000       
 
 
 
@@ -12364,7 +12367,7 @@
    LNIGBACC =      0 
    NNIGBACC =      0 
    PNIGBACC =      0 
-  **info** (lfsr.sp:55) DC voltage reset to initial transient source value              in source        0:vclk_in             new dc=  0.0000D+00
+  **info** (lfsr.sp:57) DC voltage reset to initial transient source value              in source        0:vclk_in             new dc=  0.0000D+00
 1****** HSPICE -- J-2014.09-2 64-BIT (Oct 22 2014) win64 ******                 
  ******  
  lfsp
@@ -12389,7 +12392,7 @@
 
                    0.         750.0000m
                   15.0000n    750.0000m
-                  15.1000n      0.     
+                  15.0100n      0.     
 
 
   vvdd_clk  vdd_clk           0                  750.0000m    0.         0.      dc   
@@ -17878,13 +17881,6 @@
  ******  option summary
  ******
  runlvl  = 3         bypass  = 2         
-  lic: MT Count(3), require 1 extra license token 
-  lic: Using FLEXlm license file: 
-  lic: 27000@DESKTOP-NPIU9RN 
-  lic: Checkout 2 hspice 
-  lic: License/Maintenance for hspice will expire on 30-dec-2030/2019.2019 
-  lic: 2(in_use)/99(total) FLOATING license(s) on SERVER 27000@DESKTOP-NPIU9RN 
-  lic:   
   Opening plot unit= 79
  file=lfsr.pa0
 
@@ -18453,6 +18449,12 @@
  + 25:node_1  = 749.9999m  25:node_2  = 750.0000m  25:node_3  =  28.8834n
  + 25:s       = 749.9997m  26:node_1  = 750.0000m  26:s       =  58.1547n
 
+ ******  
+ lfsp
+
+ ****** transient analysis tnom=  25.000 temp=  35.000 ******
+ avg_p_vdd_design=-367.1494n  from=   0.          to=   4.0000u
+ avg_p_vdd_clk=-202.4778n  from=   0.          to=   4.0000u
 
           ***** job concluded
 1****** HSPICE -- J-2014.09-2 64-BIT (Oct 22 2014) win64 ******                 
@@ -18463,9 +18465,9 @@
 
   ******  HSPICE Threads Information  ******
 
-  Command Line Threads Count :     3
+  Command Line Threads Count :     2
   Available CPU Count        :     4
-  Actual Threads Count       :     3
+  Actual Threads Count       :     2
 
 
   ******  Circuit Statistics  ******
@@ -18483,19 +18485,19 @@
   ******  Runtime Statistics (seconds)  ******
 
   analysis           time    # points   tot. iter  conv.iter
-  op point           0.02           1           4
-  transient         26.33        1001       33945        6282 rev=       149
-  readin             0.02
-  errchk             0.11
+  op point           0.03           1           4
+  transient        156.44        4001      139347       25769 rev=       586
+  readin             0.03
+  errchk             0.13
   setup              0.01
   output             0.00
 
 
-           peak memory used         55.66 megabytes
-           total cpu time           26.50 seconds
-           total elapsed time       26.55 seconds
-           job started at     11:11:58 05/20/2022
-           job ended   at     11:12:25 05/20/2022
+           peak memory used         54.63 megabytes
+           total cpu time          156.64 seconds
+           total elapsed time      156.70 seconds
+           job started at     10:32:36 05/21/2022
+           job ended   at     10:35:13 05/21/2022
 
 
   lic: Release hspice token(s) 

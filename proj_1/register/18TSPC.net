@@ -1,0 +1,20 @@
+* 18-Transistors Single-Phase Clocked FF (18TSPC)
+.subckt _18tspc d q clk vdd vss
+Xm_1  node_1 clk    vdd    vdd pfet
+Xm_2  node_4 clk    node_6 vss nfet
+Xm_3  node_2 d      node_1 vdd pfet
+Xm_4  node_2 node_3 vdd    vdd pfet
+Xm_5  node_2 node_3 node_4 vss nfet
+Xm_6  node_4 d      vss    vss nfet
+Xm_7  node_3 node_2 vdd    vdd pfet
+Xm_8  node_3 clk    vdd    vdd pfet
+Xm_9  node_3 node_2 node_5 vss nfet
+Xm_10 node_5 clk    vss    vss nfet
+Xm_11 node_7 node_3 vdd    vdd pfet
+Xm_12 node_7 node_8 node_1 vdd pfet
+Xm_13 node_7 node_3 node_6 vss nfet
+Xm_14 node_6 node_8 vss    vss nfet
+
+Xinv_1 node_7 node_8 vdd vss inv_size_1
+Xinv_2 node_7 q      vdd vss inv_size_1
+.ends _18tspc

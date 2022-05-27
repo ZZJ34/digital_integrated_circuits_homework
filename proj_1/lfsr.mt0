@@ -1,4 +1,4 @@
 $DATA1 SOURCE='HSPICE' VERSION='J-2014.09-2 64-BIT'
 .TITLE 'lfsp'
  avg_p_vdd_design avg_p_vdd_clk    temper           alter#          
- -1.298e-07       -3.190e-07         35.0000        1               
+ -4.749e-08       -1.678e-07         35.0000        1               

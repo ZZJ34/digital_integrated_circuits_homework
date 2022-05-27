@@ -11,9 +11,9 @@ Xnfet out in vss vss nfet l=lg nfin=4
 .ends inv_size_4
 
 * Transmission Gate
-.subckt tg in out enbale enbale_n vdd vss 
-Xpfet out enbale_n in vdd pfet l=lg nfin=1
-Xnfet out enbale   in vss nfet l=lg nfin=1
+.subckt tg in out enable enable_n vdd vss 
+Xpfet out enable_n in vdd pfet l=lg nfin=1
+Xnfet out enable   in vss nfet l=lg nfin=1
 .ends tg
 
 * Exclusive-OR gate
@@ -31,6 +31,19 @@ Xnfet_3 out    in_1 node_3 vss nfet l=lg nfin=1
 Xnfet_4 node_3 in_2 vss    vss nfet l=lg nfin=1
 Xnfet_5 out    s    vss    vss nfet l=lg nfin=1
 .ends xor
+
+.subckt xor_tg in_1 in_2 out vdd vss
+Xinv_size_1 in_2  in_2_n  vdd  vss  inv_size_1
+
+Xpfet_inv out in_1 in_2   vdd pfet l=lg nfin=1
+Xnfet_inv out in_1 in_2_n vss nfet l=lg nfin=1
+
+Xpfet_tg out in_2 in_1   vdd pfet l=lg nfin=1
+Xnfet_tg out in_2_n in_1 vss nfet l=lg nfin=1
+.ends xor_tg
+
+
+
 
 .subckt or2 in_1 in_2 out vdd vss
 * Two-input NOR gate

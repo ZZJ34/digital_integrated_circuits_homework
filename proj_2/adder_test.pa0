@@ -1,0 +1,12 @@
+       1 xor4.
+       2 xor4.xpfet_1.
+       3 xor4.xpfet_2.
+       4 xor4.xpfet_3.
+       5 xor4.xpfet_4.
+       6 xor4.xnfet_1.
+       7 xor4.xnfet_2.
+       8 xor4.xnfet_3.
+       9 xor4.xnfet_4.
+      10 xor4.xinv_size_1.
+      11 xor4.xinv_size_1.xpfet.
+      12 xor4.xinv_size_1.xnfet.

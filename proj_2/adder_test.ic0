@@ -1,0 +1,25 @@
+* "simulator" "HSPICE" 
+* "version" "J-2014.09-2 64-BIT"
+* "format" "HSP"
+* "rundate" "22:15:01 06/03/2022 "
+* "netlist" "adder_test.sp "
+* "runtitle" "adder_test"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ a0 =   0.            
++ a1 =   0.            
++ b0 =   0.            
++ b1 =   0.            
++ out =  31.5433n       
++ vdd_design = 700.0000m       
++ vdd_load = 700.0000m       
++ vss_com =   0.            
++ xor4.node_1 = 699.9999m       
++ xor4.node_2 = 699.9998m       
++ xor4.node_3 = 699.9997m       
++ xor4.s = 699.9995m       
+***   END: Saved Operating Point ***                     

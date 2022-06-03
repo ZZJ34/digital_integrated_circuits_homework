@@ -32,7 +32,27 @@
        option list
        option post
        option probe
- init: end read circuit files,  cpu clock=  6.20E-02 peak memory=        41 mb
- init: begin check errors,  cpu clock=  6.20E-02
->error          ***** hspice job aborted
+ init: end read circuit files,  cpu clock=  6.30E-02 peak memory=        41 mb
+ init: begin check errors,  cpu clock=  6.30E-02
+ init: end check errors,  cpu clock=  8.40E-02 peak memory=        44 mb
+ init: begin setup matrix, pivot=     0 cpu clock=  8.40E-02
+       establish matrix -- done,  cpu clock=  8.50E-02 peak memory=        44 mb
+       re-order matrix -- done,  cpu clock=  8.50E-02 peak memory=        44 mb
+ init: end setup matrix,  cpu clock=  8.60E-02 peak memory=        44 mb
+ dcop: begin dcop,  cpu clock=  8.60E-02
+ dcop: end dcop,  cpu clock=  8.80E-02 peak memory=        45 mb  tot_iter=       3
+ output: adder_test.tr0
+ sweep: tran tran0    begin, stop_t=  2.50E-08 #sweeps=2501 cpu clock=  8.80E-02
+ tran: time= 2.5003E-09 tot_iter=      95 conv_iter=      32 cpu clock= 9.40E-02
+ tran: time= 5.1535E-09 tot_iter=     276 conv_iter=      95 cpu clock= 1.06E-01
+ tran: time= 7.5003E-09 tot_iter=     373 conv_iter=     135 cpu clock= 1.12E-01
+ tran: time= 1.0056E-08 tot_iter=     506 conv_iter=     188 cpu clock= 1.21E-01
+ tran: time= 1.2500E-08 tot_iter=     696 conv_iter=     251 cpu clock= 1.35E-01
+ tran: time= 1.5153E-08 tot_iter=     879 conv_iter=     315 cpu clock= 1.46E-01
+ tran: time= 1.7500E-08 tot_iter=     974 conv_iter=     354 cpu clock= 1.53E-01
+ tran: time= 2.0056E-08 tot_iter=    1109 conv_iter=     408 cpu clock= 1.61E-01
+ tran: time= 2.2876E-08 tot_iter=    1119 conv_iter=     413 cpu clock= 1.63E-01
+ tran: time= 2.5000E-08 tot_iter=    1123 conv_iter=     415 cpu clock= 1.63E-01
+ sweep: tran tran0    end,  cpu clock=  1.64E-01 peak memory=        45 mb
+>info:         ***** hspice job concluded
  lic: Release hspice token(s)

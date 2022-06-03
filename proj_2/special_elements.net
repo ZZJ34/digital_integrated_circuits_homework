@@ -1,0 +1,10 @@
+* 基于传输门的异或门 
+.subckt xor_tg in_1 in_2 out vdd vss
+Xinv_size_1 in_2  in_2_n  vdd  vss  inv_size_1
+
+Xpfet_inv out in_1 in_2   vdd pfet l=lg nfin=1
+Xnfet_inv out in_1 in_2_n vss nfet l=lg nfin=1
+
+Xpfet_tg out in_2 in_1   vdd pfet l=lg nfin=1
+Xnfet_tg out in_2_n in_1 vss nfet l=lg nfin=1
+.ends xor_tg

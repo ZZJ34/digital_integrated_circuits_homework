@@ -1,0 +1,38 @@
+***** HSPICE -- J-2014.09-2 64-BIT (Oct 22 2014) win64 ******
+ Input File: adder_test.sp
+ lic:
+ lic: FLEXlm: v10.9.8
+ lic: USER:   渣渣基            HOSTNAME: DESKTOP-NPIU9RN
+ lic: HOSTID: "f430b9ae4e60 005056c00001 005056c00008 5413792f7072 00ff4a66f477 00ffbbf96e68 00ffd5f
+ lic: Using FLEXlm license file:
+ lic: 27000@DESKTOP-NPIU9RN
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 30-dec-2030/2019.2019
+ lic: 1(in_use)/99(total) FLOATING license(s) on SERVER 27000@DESKTOP-NPIU9RN
+ lic:
+ init: begin read circuit files,  cpu clock=  5.80E-02
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\behave\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\behave\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\AD\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\XILINX\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\TLINE\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\TI\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\SIGNET\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\PCI\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\LIN_TECH\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\PET\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\DI0\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\COMLINE\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\BURR_BRM\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\BJT\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\behave\
+       option search = C:\synopsys\Hspice_J-2014.09-2\parts\AD\
+       option runlvl
+       option acct
+       option list
+       option post
+       option probe
+ init: end read circuit files,  cpu clock=  6.20E-02 peak memory=        41 mb
+ init: begin check errors,  cpu clock=  6.20E-02
+>error          ***** hspice job aborted
+ lic: Release hspice token(s)

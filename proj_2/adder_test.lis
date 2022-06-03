@@ -1,0 +1,91 @@
+ ****** HSPICE -- J-2014.09-2 64-BIT (Oct 22 2014) win64 ******                 
+  Copyright (C) 2014 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the
+  terms and conditions of the license agreement from Synopsys.
+  Use of this program is your acceptance to be bound by the
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: adder_test.sp                                                     
+  Command line options: -i adder_test.sp -o adder_test.lis
+  lic:  
+  lic: FLEXlm: v10.9.8 
+  lic: USER:   渣渣基            HOSTNAME: DESKTOP-NPIU9RN 
+  lic: HOSTID: "f430b9ae4e60 005056c00001 005056c00008 5413792f7072 00ff4a66f477
+  00ffbbf96e68 00ffd5f
+  lic: Using FLEXlm license file: 
+  lic: 27000@DESKTOP-NPIU9RN 
+  lic: Checkout 1 hspice 
+  lic: License/Maintenance for hspice will expire on 30-dec-2030/2019.2019 
+  lic: 1(in_use)/99(total) FLOATING license(s) on SERVER 27000@DESKTOP-NPIU9RN 
+  lic:   
+ Init: read install configuration file: C:\synopsys\Hspice_J-2014.09-2\meta.cfg
+  **info**  the obsolete option acct is ignored
+ scientific notation:
+ a=10**-18  f=10**-15  p=10**-12  n=10**-9  u=10**-6
+ m=10**-3   k=10**3    x=10**6    g=10**9 
+
+
+ circuit parameter definitions
+  parameter          =  value 
+
+     0:vdd                                                     = 700.0000m      
+     0:vddp                                                    =-700.0000m      
+     0:fin_height                                              =  18.0000n      
+     0:fin_width                                               =   7.0000n      
+     0:lg                                                      =  11.0000n      
+     0:supply                                                  = 700.0000m      
+
+
+
+
+ constants  - tnom         kt           vt           gapsi        ni
+            298.15000    4.1163e-21    25.69184m     1.11562    1.2565e+16 
+
+ **error**  circuit 0 has no nodes
+
+
+          ***** job aborted
+1****** HSPICE -- J-2014.09-2 64-BIT (Oct 22 2014) win64 ******                 
+ ******  
+ adder_test
+
+ ****** job statistics summary tnom=  25.000 temp=  25.000 ******
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :     4
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =       1 # elements   =       0
+  # resistors   =       0 # capacitors =       0 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       0
+  # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =       0 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       0
+  # vector_srcs =       0 # N elements =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           0.00           1           0
+  readin             0.01
+  errchk             0.00
+  setup              0.00
+  output             0.00
+
+
+           peak memory used         42.94 megabytes
+           total cpu time            0.01 seconds
+           total elapsed time        0.06 seconds
+           job started at     16:01:15 06/03/2022
+           job ended   at     16:01:15 06/03/2022
+
+
+  lic: Release hspice token(s) 
+ lic: total license checkout elapse time:        0.04(s)

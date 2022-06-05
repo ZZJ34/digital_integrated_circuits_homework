@@ -1,130 +1,157 @@
 * size=1 inverter
 .subckt inv_size_1 in out vdd vss
-Xpfet out in vdd vdd pfet l=lg nfin=1
-Xnfet out in vss vss nfet l=lg nfin=1
+    Xpfet out in vdd vdd pfet l=lg nfin=1
+    Xnfet out in vss vss nfet l=lg nfin=1
 .ends inv_size_1
 
 * size=4 inverter
 .subckt inv_size_4 in out vdd vss
-Xpfet out in vdd vdd pfet l=lg nfin=4
-Xnfet out in vss vss nfet l=lg nfin=4
+    Xpfet out in vdd vdd pfet l=lg nfin=4
+    Xnfet out in vss vss nfet l=lg nfin=4
 .ends inv_size_4
 
 * size=8 inverter
 .subckt inv_size_8 in out vdd vss
-Xpfet out in vdd vdd pfet l=lg nfin=8
-Xnfet out in vss vss nfet l=lg nfin=8
+    Xpfet out in vdd vdd pfet l=lg nfin=8
+    Xnfet out in vss vss nfet l=lg nfin=8
 .ends inv_size_8
 
 * customize size inverter
-.subckt inv in out vdd vss size
-Xpfet out in vdd vdd pfet l=lg nfin=size
-Xnfet out in vss vss nfet l=lg nfin=size
+.subckt inv in out vdd vss p_size n_size
+    Xpfet out in vdd vdd pfet l=lg nfin=p_size
+    Xnfet out in vss vss nfet l=lg nfin=n_size
 .ends inv
 
 * transmission gate
 .subckt tg in out enable enable_n vdd vss 
-Xpfet out enable_n in vdd pfet l=lg nfin=1
-Xnfet out enable   in vss nfet l=lg nfin=1
+    Xpfet out enable_n in vdd pfet l=lg nfin=1
+    Xnfet out enable   in vss nfet l=lg nfin=1
 .ends tg
 
 * 2-input xor gate
 .subckt xor in_1 in_2 out vdd vss
-* Two-input NOR gate
-Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 s      in_2 node_1 vdd pfet l=lg nfin=1
-Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
-* F = !(AB+S)
-Xpfet_3 node_2 in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_4 node_2 in_2 vdd    vdd pfet l=lg nfin=1
-Xpfet_5 out    s    node_2 vdd pfet l=lg nfin=1
-Xnfet_3 out    in_1 node_3 vss nfet l=lg nfin=1
-Xnfet_4 node_3 in_2 vss    vss nfet l=lg nfin=1
-Xnfet_5 out    s    vss    vss nfet l=lg nfin=1
+    * Two-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 node_1 vdd pfet l=lg nfin=1
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    * F = !(AB+S)
+    Xpfet_3 node_2 in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_4 node_2 in_2 vdd    vdd pfet l=lg nfin=1
+    Xpfet_5 out    s    node_2 vdd pfet l=lg nfin=1
+    Xnfet_3 out    in_1 node_3 vss nfet l=lg nfin=1
+    Xnfet_4 node_3 in_2 vss    vss nfet l=lg nfin=1
+    Xnfet_5 out    s    vss    vss nfet l=lg nfin=1
 .ends xor
-
 
 * 2-input or gate
 .subckt or2 in_1 in_2 out vdd vss
-* Two-input NOR gate
-Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 s      in_2 node_1 vdd pfet l=lg nfin=1
-Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    * Two-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 node_1 vdd pfet l=lg nfin=1
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
 
-Xinv_size_1 s  out  vdd    vss inv_size_1
+    Xinv_size_1 s  out  vdd    vss inv_size_1
 .ends or2
-
 
 * 3-input or gate
 .subckt or3 in_1 in_2 in_3 out vdd vss
-* Three-input NOR gate
-Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=1
-Xpfet_3 s      in_3 node_2 vdd pfet l=lg nfin=1
-Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
-Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
+    * Three-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=1
+    Xpfet_3 s      in_3 node_2 vdd pfet l=lg nfin=1
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
 
-Xinv_size_1 s out vdd vss inv_size_1
+    Xinv_size_1 s out vdd vss inv_size_1
 .ends or3
-
 
 * 4-input or gate
 .subckt or4 in_1 in_2 in_3 in_4 out vdd vss
-* Four-input NOR gate
-Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=1
-Xpfet_3 node_3 in_3 node_2 vdd pfet l=lg nfin=1
-Xpfet_4 s      in_4 node_3 vdd pfet l=lg nfin=1
-Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
-Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
-Xnfet_4 s      in_4 vss    vss nfet l=lg nfin=1
+    * Four-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=1
+    Xpfet_3 node_3 in_3 node_2 vdd pfet l=lg nfin=1
+    Xpfet_4 s      in_4 node_3 vdd pfet l=lg nfin=1
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
+    Xnfet_4 s      in_4 vss    vss nfet l=lg nfin=1
 
-Xinv_size_1 s out vdd vss inv_size_1
+    Xinv_size_1 s out vdd vss inv_size_1
 .ends or4
 
+* 5-input or gate
+.subckt or5 in_1 in_2 in_3 in_4 in_5 out vdd vss
+    * Four-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=1
+    Xpfet_3 node_3 in_3 node_2 vdd pfet l=lg nfin=1
+    Xpfet_4 node_4 in_4 node_3 vdd pfet l=lg nfin=1
+    Xpfet_5 s      in_5 node_4 vdd pfet l=lg nfin=1
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
+    Xnfet_4 s      in_4 vss    vss nfet l=lg nfin=1
+    Xnfet_5 s      in_5 vss    vss nfet l=lg nfin=1
+
+    Xinv_size_1 s out vdd vss inv_size_1
+.ends or5
 
 * 2-input and gate
 .subckt and2 in_1 in_2 out vdd vss
-* Two-input AND gate
-Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
-Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 s      in_2 node_1 vss nfet l=lg nfin=1
+    * Two-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 node_1 vss nfet l=lg nfin=1
 
-Xinv_size_1 s  out  vdd    vss inv_size_1
+    Xinv_size_1 s  out  vdd    vss inv_size_1
 .ends and2
-
 
 * 3-input and gate
 .subckt and3 in_1 in_2 in_3 out vdd vss
-* Three-input AND gate
-Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
-Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
-Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=1
-Xnfet_3 s      in_3 node_2 vss nfet l=lg nfin=1
+    * Three-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=1
+    Xnfet_3 s      in_3 node_2 vss nfet l=lg nfin=1
 
-Xinv_size_1 s  out  vdd    vss inv_size_1
+    Xinv_size_1 s  out  vdd    vss inv_size_1
 .ends and3
-
 
 * 4-input and gate
 .subckt and4 in_1 in_2 in_3 in_4 out vdd vss
-* Three-input AND gate
-Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
-Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
-Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
-Xpfet_4 s      in_4 vdd    vdd pfet l=lg nfin=1
-Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
-Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=1
-Xnfet_3 node_3 in_3 node_2 vss nfet l=lg nfin=1
-Xnfet_4 s      in_4 node_3 vss nfet l=lg nfin=1
+    * Three-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
+    Xpfet_4 s      in_4 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=1
+    Xnfet_3 node_3 in_3 node_2 vss nfet l=lg nfin=1
+    Xnfet_4 s      in_4 node_3 vss nfet l=lg nfin=1
 
-Xinv_size_1 s  out  vdd    vss inv_size_1
+    Xinv_size_1 s  out  vdd    vss inv_size_1
 .ends and4
 
+* 5-input and gate
+.subckt and5 in_1 in_2 in_3 in_4 in_5 out vdd vss
+    * Three-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
+    Xpfet_4 s      in_4 vdd    vdd pfet l=lg nfin=1
+    Xpfet_5 s      in_5 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=1
+    Xnfet_3 node_3 in_3 node_2 vss nfet l=lg nfin=1
+    Xnfet_4 node_4 in_4 node_3 vss nfet l=lg nfin=1
+    Xnfet_5 s      in_5 node_4 vss nfet l=lg nfin=1
+
+    Xinv_size_1 s  out  vdd    vss inv_size_1
+.ends and5

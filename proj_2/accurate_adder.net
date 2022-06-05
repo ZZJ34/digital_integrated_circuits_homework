@@ -1,0 +1,60 @@
+* 32 bits 精确加法器(CLA + RCA)
+* 4 bits CLA
+.subckt cla_4 a0 a1 a2 a3 b0 b1 b2 b3 s0 s1 s2 s3 c0 c4 vdd vss
+    * P & G
+    Xxor_p0  a0 b0 p0 vdd vss xor
+    Xxor_p1  a1 b1 p1 vdd vss xor
+    Xxor_p2  a2 b2 p2 vdd vss xor
+    Xxor_p3  a3 b3 p3 vdd vss xor
+    Xand2_g0 a0 b0 g0 vdd vss and2
+    Xand2_g1 a1 b1 g1 vdd vss and2
+    Xand2_g2 a2 b2 g2 vdd vss and2
+    Xand2_g3 a3 b3 g3 vdd vss and2
+
+    * c1 = g0 + c0p0
+    Xand2_c1 c0   p0  c1_t vdd vss and2
+    Xor2_c1  c1_t g0  c1   vdd vss or2
+
+    * c2 = g1 + g0p1 + c0p1p0
+    Xand3_c2 c0  p1  p0  c2_t1  vdd vss and3
+    Xand2_c2 g0  p1  c2_t2  vdd vss and2
+    Xor3_c2  g1 c2_t2 c2_t1 c2 vdd vss or3
+
+    * c3 = g2 + g1p2 + g0p2p1 + c0p2p1p0
+    Xand4_c3 c0  p2  p1  p0  c3_t1 vdd vss and4
+    Xand3_c3 g0  p2  p1  c3_t2 vdd vss and3
+    Xand2_c3 g1  p2  c3_t3 vdd vss and2
+    Xor4_c3  g2 c3_t3 c3_t2 c3_t1 c3 vdd vss or4
+
+    * c4 = g3 + g2p3 + g1p3p2 + g0p3p2p1 + c0p3p2p1p0
+    Xand5_c4 c0  p3  p2  p1  p0  c4_t1 vdd vss and5
+    Xand4_c4 g0  p3  p2  p1  c4_t2 vdd vss and4
+    Xand3_c4 g1  p3  p2  c4_t3 vdd vss and3
+    Xand2_c4 g2  p3  c4_t4 vdd vss and2
+    Xor5_c4  g3 c4_t4 c4_t3 c4_t2 c4_t1 c4 vdd vss or5
+
+    * s0 = p0 xor c0
+    Xxor_s0  p0 c0 s0 vdd vss xor
+    * s1 = p1 xor c1
+    Xxor_s1  p1 c1 s1 vdd vss xor
+    * s2 = p2 xor c2
+    Xxor_s2  p2 c2 s2 vdd vss xor
+    * s3 = p3 xor c3
+    Xxor_s3  p3 c3 s3 vdd vss xor
+.ends
+
+* 4 bits CLA * 8 => 32 bits adder 
+.subckt adder_32_base 
++ a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 a31
++ b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b25 b26 b27 b28 b29 b30 b31
++ s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 cout
++ cin vdd vss
+    Xcla_4_1 a0  a1  a2  a3  b0  b1  b2  b3  s0  s1  s2  s3  cin     cout_i1 vdd vss cla_4
+    Xcla_4_2 a4  a5  a6  a7  b4  b5  b6  b7  s4  s5  s6  s7  cout_i1 cout_i2 vdd vss cla_4
+    Xcla_4_3 a8  a9  a10 a11 b8  b9  b10 b11 s8  s9  s10 s11 cout_i2 cout_i3 vdd vss cla_4
+    Xcla_4_4 a12 a13 a14 a15 b12 b13 b14 b15 s12 s13 s14 s15 cout_i3 cout_i4 vdd vss cla_4
+    Xcla_4_5 a16 a17 a18 a19 b16 b17 b18 b19 s16 s17 s18 s19 cout_i4 cout_i5 vdd vss cla_4
+    Xcla_4_6 a20 a21 a22 a23 b20 b21 b22 b23 s20 s21 s22 s23 cout_i5 cout_i6 vdd vss cla_4
+    Xcla_4_7 a24 a25 a26 a27 b24 b25 b26 b27 s24 s25 s26 s27 cout_i6 cout_i7 vdd vss cla_4
+    Xcla_4_8 a28 a29 a30 a31 b28 b29 b30 b31 s28 s29 s30 s31 cout_i7 cout    vdd vss cla_4
+.ends

@@ -41,7 +41,7 @@
     Xxor_s2  p2 c2 s2 vdd vss xor
     * s3 = p3 xor c3
     Xxor_s3  p3 c3 s3 vdd vss xor
-.ends
+.ends cla_4
 
 * 4 bits CLA * 8 => 32 bits adder 
 .subckt adder_32_base 
@@ -57,4 +57,4 @@
     Xcla_4_6 a20 a21 a22 a23 b20 b21 b22 b23 s20 s21 s22 s23 cout_i5 cout_i6 vdd vss cla_4
     Xcla_4_7 a24 a25 a26 a27 b24 b25 b26 b27 s24 s25 s26 s27 cout_i6 cout_i7 vdd vss cla_4
     Xcla_4_8 a28 a29 a30 a31 b28 b29 b30 b31 s28 s29 s30 s31 cout_i7 cout    vdd vss cla_4
-.ends
+.ends adder_32_base

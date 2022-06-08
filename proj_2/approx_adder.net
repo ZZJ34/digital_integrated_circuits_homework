@@ -1,0 +1,66 @@
+
+* 4 bits CLA (approximate)
+.subckt cla_4_app a0 a1 a2 a3 b0 b1 b2 b3 s0 s1 s2 s3 c0 c4 app vdd vss
+    * P & G
+    Xxor_tg_p0  a0 b0 p0 vdd vss xor_tg
+    Xxor_tg_p1  a1 b1 p1 vdd vss xor_tg
+    Xxor_tg_p2  a2 b2 p2 vdd vss xor_tg
+    Xxor_tg_p3  a3 b3 p3 vdd vss xor_tg
+    Xand2_r_g0 a0 b0 g0 vdd vss and2_r
+    Xand2_r_g1 a1 b1 g1 vdd vss and2_r
+    Xand2_r_g2 a2 b2 g2 vdd vss and2_r
+    Xand2_r_g3 a3 b3 g3 vdd vss and2_r
+
+    * c1 = g0 + c0p0
+    Xand2_r_c1 p0   c0   c1_t vdd vss and2_r
+    Xor2_r_c1  g0 c1_t c1 vdd vss or2_r
+
+    * c2 = g1 + g0p1 + c0p1p0
+    Xand3_r_c2 p1  p0  c0  c2_t1  vdd vss and3_r
+    Xand2_r_c2 p1  g0 c2_t2  vdd vss and2_r
+    Xor3_r_c2  g1 c2_t2 c2_t1  c2 vdd vss or3_r
+
+    * c3 = g2 + g1p2 + g0p2p1 + c0p2p1p0
+    Xand4_r_c3 p2  p1  p0  c0  c3_t1 vdd vss and4_r
+    Xand3_r_c3 p2  p1  g0  c3_t2 vdd vss and3_r
+    Xand2_r_c3 p2  g1  c3_t3 vdd vss and2_r
+    Xor4_r_c3  g2 c3_t3 c3_t2 c3_t1 c3 vdd vss or4_r
+
+    * (approximate) c4 = g3 + g2p3 + g1p3p2 + g0p3p2p1 + c0p3p2p1p0
+    Xand5_rg_c4 p3  p2  p1  p0  c0  c4_t1 app vdd vss and5_rg
+    Xand4_r_c4  p3  p2  p1  g0  c4_t2 vdd vss and4_r
+    Xand3_r_c4  p3  p2  g1  c4_t3 vdd vss and3_r
+    Xand2_r_c4  p3  g2  c4_t4 vdd vss and2_r
+    Xor4_r_c4   g3 c4_t4 c4_t3 c4_t2 c4_1 vdd vss or4_r
+
+    Xor2_rg_c4 c4_1 c4_t1 c4_0 app vdd vss or2_rg
+
+    Xmux2to1 c4_0 c4_1 app c4 vdd vss mux2to1
+
+
+    * s0 = p0 xor c0
+    Xxor_tg_s0  p0 c0 s0 vdd vss xor_tg
+    * s1 = p1 xor c1
+    Xxor_tg_s1  p1 c1 s1 vdd vss xor_tg
+    * s2 = p2 xor c2
+    Xxor_tg_s2  p2 c2 s2 vdd vss xor_tg
+    * s3 = p3 xor c3
+    Xxor_tg_s3  p3 c3 s3 vdd vss xor_tg
+.ends cla_4_app
+
+* 4 bits CLA * 8 => 32 bits adder (approximate)
+.subckt adder_32_app 
++ a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 a31
++ b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b25 b26 b27 b28 b29 b30 b31
++ s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 s12 s13 s14 s15 s16 s17 s18 s19 s20 s21 s22 s23 s24 s25 s26 s27 s28 s29 s30 s31 cout
++ app1 app2 app3 app4 app5 app6 app7 app8
++ cin vdd vss
+    Xcla_4_app_1 a0  a1  a2  a3  b0  b1  b2  b3  s0  s1  s2  s3  cin     cout_i1 app1 vdd vss cla_4_app
+    Xcla_4_app_2 a4  a5  a6  a7  b4  b5  b6  b7  s4  s5  s6  s7  cout_i1 cout_i2 app2 vdd vss cla_4_app
+    Xcla_4_app_3 a8  a9  a10 a11 b8  b9  b10 b11 s8  s9  s10 s11 cout_i2 cout_i3 app3 vdd vss cla_4_app
+    Xcla_4_app_4 a12 a13 a14 a15 b12 b13 b14 b15 s12 s13 s14 s15 cout_i3 cout_i4 app4 vdd vss cla_4_app
+    Xcla_4_app_5 a16 a17 a18 a19 b16 b17 b18 b19 s16 s17 s18 s19 cout_i4 cout_i5 app5 vdd vss cla_4_app
+    Xcla_4_app_6 a20 a21 a22 a23 b20 b21 b22 b23 s20 s21 s22 s23 cout_i5 cout_i6 app6 vdd vss cla_4_app
+    Xcla_4_app_7 a24 a25 a26 a27 b24 b25 b26 b27 s24 s25 s26 s27 cout_i6 cout_i7 app7 vdd vss cla_4_app
+    Xcla_4_app_8 a28 a29 a30 a31 b28 b29 b30 b31 s28 s29 s30 s31 cout_i7 cout    app8 vdd vss cla_4_app
+.ends adder_32_app

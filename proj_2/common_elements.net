@@ -4,6 +4,12 @@
     Xnfet out in vss vss nfet l=lg nfin=1
 .ends inv_size_1
 
+* size=2 inverter
+.subckt inv_size_2 in out vdd vss
+    Xpfet out in vdd vdd pfet l=lg nfin=2
+    Xnfet out in vss vss nfet l=lg nfin=2
+.ends inv_size_2
+
 * size=4 inverter
 .subckt inv_size_4 in out vdd vss
     Xpfet out in vdd vdd pfet l=lg nfin=4
@@ -17,7 +23,7 @@
 .ends inv_size_8
 
 * customize size inverter
-.subckt inv in out vdd vss p_size n_size
+.subckt inv in out vdd vss p_size=1 n_size=1
     Xpfet out in vdd vdd pfet l=lg nfin=p_size
     Xnfet out in vss vss nfet l=lg nfin=n_size
 .ends inv

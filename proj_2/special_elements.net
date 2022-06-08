@@ -1,10 +1,144 @@
 * 基于传输门的异或门 
 .subckt xor_tg in_1 in_2 out vdd vss
-Xinv_size_1 in_2  in_2_n  vdd  vss  inv_size_1
+    Xinv_size_1 in_2  in_2_n  vdd  vss  inv_size_1
 
-Xpfet_inv out in_1 in_2   vdd pfet l=lg nfin=1
-Xnfet_inv out in_1 in_2_n vss nfet l=lg nfin=1
+    Xpfet_inv out in_1 in_2   vdd pfet l=lg nfin=1
+    Xnfet_inv out in_1 in_2_n vss nfet l=lg nfin=1
 
-Xpfet_tg out in_2 in_1   vdd pfet l=lg nfin=1
-Xnfet_tg out in_2_n in_1 vss nfet l=lg nfin=1
+    Xpfet_tg out in_2 in_1   vdd pfet l=lg nfin=1
+    Xnfet_tg out in_2_n in_1 vss nfet l=lg nfin=1
 .ends xor_tg
+
+* 2路选择器
+.subckt mux2to1 in_0 in_1 sel out vdd vss
+
+    Xinv sel sel_n vdd vss inv p_size=3 n_size=2
+
+    Xtg_1 in_0 out sel_n sel   vdd vss tg
+    Xtg_2 in_1 out sel   sel_n vdd vss tg
+.ends mux2to1
+
+* 2-input or gate resizing
+.subckt or2_r in_1 in_2 out vdd vss
+    * Two-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=2
+    Xpfet_2 s      in_2 node_1 vdd pfet l=lg nfin=2
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+
+    Xinv_size_1 s  out  vdd    vss inv_size_1
+.ends or2_r
+
+* 2-input or gate resizing&gating
+.subckt or2_rg in_1 in_2 out enbale_n vdd vss
+    Xpfet_g1 vdd_g1 enbale_n vdd    vdd pfet l=lg nfin=3
+    * Two-input NOR gate
+    Xpfet_1  node_1 in_1     vdd_g1 vdd pfet l=lg nfin=2
+    Xpfet_2  s      in_2     node_1 vdd pfet l=lg nfin=2
+    Xnfet_1  s      in_1     vss    vss nfet l=lg nfin=1
+    Xnfet_2  s      in_2     vss    vss nfet l=lg nfin=1
+
+    Xpfet    out     s        vdd_g1 vdd pfet l=lg nfin=1
+    Xnfet    out     s        vss    vss nfet l=lg nfin=1
+.ends or2_rg
+
+* 3-input or gate resizing
+.subckt or3_r in_1 in_2 in_3 out vdd vss
+    * Three-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=3
+    Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=3
+    Xpfet_3 s      in_3 node_2 vdd pfet l=lg nfin=3
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
+
+    Xinv_size_1 s out vdd vss inv_size_1
+.ends or3_r
+
+* 4-input or gate resizing
+.subckt or4_r in_1 in_2 in_3 in_4 out vdd vss
+    * Four-input NOR gate
+    Xpfet_1 node_1 in_1 vdd    vdd pfet l=lg nfin=4
+    Xpfet_2 node_2 in_2 node_1 vdd pfet l=lg nfin=4
+    Xpfet_3 node_3 in_3 node_2 vdd pfet l=lg nfin=4
+    Xpfet_4 s      in_4 node_3 vdd pfet l=lg nfin=4
+    Xnfet_1 s      in_1 vss    vss nfet l=lg nfin=1
+    Xnfet_2 s      in_2 vss    vss nfet l=lg nfin=1
+    Xnfet_3 s      in_3 vss    vss nfet l=lg nfin=1
+    Xnfet_4 s      in_4 vss    vss nfet l=lg nfin=1
+
+    Xinv_size_1 s out vdd vss inv_size_1
+.ends or4_r
+
+* 2-input and gate resizing
+.subckt and2_r in_1 in_2 out vdd vss
+    * Two-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=2
+    Xnfet_2 s      in_2 node_1 vss nfet l=lg nfin=2
+
+    Xinv_size_1 s  out  vdd    vss inv_size_1
+.ends and2_r 
+
+* 3-input and gate resizing
+.subckt and3_r in_1 in_2 in_3 out vdd vss
+    * Three-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=3
+    Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=3
+    Xnfet_3 s      in_3 node_2 vss nfet l=lg nfin=3
+
+    Xinv_size_1 s  out  vdd    vss inv_size_1
+.ends and3_r
+
+* 4-input and gate resizing
+.subckt and4_r in_1 in_2 in_3 in_4 out vdd vss
+    * Three-input AND gate
+    Xpfet_1 s      in_1 vdd    vdd pfet l=lg nfin=1
+    Xpfet_2 s      in_2 vdd    vdd pfet l=lg nfin=1
+    Xpfet_3 s      in_3 vdd    vdd pfet l=lg nfin=1
+    Xpfet_4 s      in_4 vdd    vdd pfet l=lg nfin=1
+    Xnfet_1 node_1 in_1 vss    vss nfet l=lg nfin=4
+    Xnfet_2 node_2 in_2 node_1 vss nfet l=lg nfin=4
+    Xnfet_3 node_3 in_3 node_2 vss nfet l=lg nfin=4
+    Xnfet_4 s      in_4 node_3 vss nfet l=lg nfin=4
+
+    Xinv_size_1 s  out  vdd    vss inv_size_1
+.ends and4_r
+
+* 5-input and gate resizing&gating
+.subckt and5_rg in_1 in_2 in_3 in_4 in_5 out enbale_n vdd vss
+    * 门控
+    Xpfet_g1 vdd_g1 enbale_n vdd  vdd pfet l=lg nfin=10
+    * 两级电路
+    * 一级电路的三输入与门
+    Xpfet_11 s1       in_1 vdd_g1  vdd pfet l=lg nfin=1
+    Xpfet_12 s1       in_2 vdd_g1  vdd pfet l=lg nfin=1
+    Xpfet_13 s1       in_3 vdd_g1  vdd pfet l=lg nfin=1
+    Xnfet_11 node_11  in_1 vss     vss nfet l=lg nfin=3
+    Xnfet_12 node_12  in_2 node_11 vss nfet l=lg nfin=3
+    Xnfet_13 s1       in_3 node_12 vss nfet l=lg nfin=3
+
+    Xpfet1    out1     s1        vdd_g1 vdd pfet l=lg nfin=1
+    Xnfet1    out1     s1        vss    vss nfet l=lg nfin=1
+    * 一级电路的二输入与门
+    Xpfet_21 s2      in_4 vdd_g1  vdd pfet l=lg nfin=1
+    Xpfet_22 s2      in_5 vdd_g1  vdd pfet l=lg nfin=1
+    Xnfet_21 node_21 in_4 vss     vss nfet l=lg nfin=2
+    Xnfet_22 s2      in_5 node_21 vss nfet l=lg nfin=2
+
+    Xpfet2    out2     s2        vdd_g1 vdd pfet l=lg nfin=1
+    Xnfet2    out2     s2        vss    vss nfet l=lg nfin=1
+    
+    * 二级电路的二输入与门
+    Xpfet_31 s3      out1 vdd_g1  vdd pfet l=lg nfin=1
+    Xpfet_32 s3      out2 vdd_g1  vdd pfet l=lg nfin=1
+    Xnfet_31 node_31 out2 vss     vss nfet l=lg nfin=2
+    Xnfet_32 s3      out1 node_31 vss nfet l=lg nfin=2
+
+    Xpfet3    out      s3        vdd_g1 vdd pfet l=lg nfin=1
+    Xnfet3    out      s3        vss    vss nfet l=lg nfin=1
+.ends and5_rg

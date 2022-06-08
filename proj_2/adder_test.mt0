@@ -1,4 +1,4 @@
 $DATA1 SOURCE='HSPICE' VERSION='J-2014.09-2 64-BIT'
 .TITLE 'adder_test'
- avg_p            temper           alter#          
- -1.019e-05         25.0000        1               
+ critical_t       temper           alter#          
+  1.727e-10         25.0000        1               
